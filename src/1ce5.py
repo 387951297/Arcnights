@@ -3,18 +3,15 @@ from const import const
 
 # 进入ce5界面
 def intoCe5():
-    # 判断是否在ce5界面
-    if util.isFindPic(const.publicPath() + 'ce5/ce5.jpg'):
-        return
     # 返回主页面
     const.backMainProcess()
     # 进入ce5界面
-    x, y = util.findPicLoop(const.publicPath() + 'bmp/into.jpg')
-    pyautogui.click(x, y)
-    x, y = util.findPicLoop(const.publicPath() + 'ce5/wuzi.jpg')
-    pyautogui.click(x, y)
-    x, y = util.findPicLoop(const.publicPath() + 'ce5/ce.jpg')
-    pyautogui.click(x, y)
+    x, y = const.picLoop(const.publicPath() + 'bmp/into.jpg')
+    util.click(x, y)
+    x, y = const.picLoop(const.publicPath() + 'bmp/collection.jpg')
+    util.click(x, y)
+    x, y = const.picLoop(const.publicPath() + 'bmp/ce.jpg')
+    util.click(x, y)
 
 def main():
     time.sleep(2)
@@ -24,12 +21,8 @@ def main():
     intoCe5()
 
     # 点击ce5
-    x, y = util.findPicLoop(const.publicPath() + 'ce5/ce5.jpg')
-    pyautogui.click(x, y)
-    time.sleep(.800)
+    x, y = const.picLoop(const.publicPath() + 'bmp/ce5.jpg')
+    util.click(x, y)
 
     while True:
         const.anchorProcess()
-
-if __name__ == '__main__':
-    main()
